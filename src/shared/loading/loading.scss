@@ -1,0 +1,100 @@
+@use "@material/theme" as theme;
+
+.pre-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: #263238;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(236, 239, 241, 0.7);
+  position: fixed;
+  z-index: 10000;
+
+  .dot-pulse {
+    animation: dotPulse 1s infinite linear;
+    animation-delay: 167ms;
+    background-color: theme.$primary;
+    border-radius: 5px;
+    box-shadow: 9999px 0 0 -3px theme.$primary;
+    color: theme.$primary;
+    height: 10px;
+    left: -9999px;
+    position: relative;
+    width: 10px;
+
+    &::before {
+      animation: dotPulseBefore 1s infinite linear;
+      animation-delay: 0s;
+      box-shadow: 9984px 0 0 -3px theme.$primary;
+    }
+
+    &::after {
+      animation: dotPulseAfter 1s infinite linear;
+      animation-delay: 333ms;
+      box-shadow: 10014px 0 0 -3px theme.$primary;
+    }
+
+    &::before,
+    &::after {
+      background-color: theme.$primary;
+      border-radius: 5px;
+      color: theme.$primary;
+      content: "";
+      display: inline-block;
+      height: 10px;
+      position: absolute;
+      top: 0;
+      width: 10px;
+    }
+  }
+}
+
+@keyframes dotPulseBefore {
+  0% {
+    box-shadow: 9984px 0 0 -3px theme.$primary;
+  }
+
+  40%,
+  60% {
+    box-shadow: 9984px 0 0 0 theme.$primary;
+  }
+
+  100% {
+    box-shadow: 9984px 0 0 -3px theme.$primary;
+  }
+}
+
+@keyframes dotPulse {
+  0% {
+    box-shadow: 9999px 0 0 -3px theme.$primary;
+  }
+
+  40%,
+  60% {
+    box-shadow: 9999px 0 0 0 theme.$primary;
+  }
+
+  100% {
+    box-shadow: 9999px 0 0 -3px theme.$primary;
+  }
+}
+
+@keyframes dotPulseAfter {
+  0% {
+    box-shadow: 10014px 0 0 -3px theme.$primary;
+  }
+
+  40%,
+  60% {
+    box-shadow: 10014px 0 0 0 theme.$primary;
+  }
+
+  100% {
+    box-shadow: 10014px 0 0 -3px theme.$primary;
+  }
+}

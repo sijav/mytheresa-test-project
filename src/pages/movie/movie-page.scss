@@ -1,0 +1,53 @@
+.movie-page {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px;
+  position: relative;
+  z-index: 1;
+
+  .backdrop {
+    background-color: var(--mdc-theme-grey-900);
+    bottom: 0;
+    content: '';
+    height: 100%;
+    left: 0;
+    opacity: .5;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+  }
+
+  h3 {
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  .companies {
+    display: inline-flex;
+    height: 50px;
+    justify-content: center;
+
+    .company {
+      height: 50px;
+      margin-right: 20px;
+    }
+
+    span {
+      align-self: center;
+      margin-right: 20px;
+    }
+  }
+
+  span {
+    color: var(--mdc-theme-grey-50);
+  }
+
+  br {
+    content: '';
+    display: block;
+    margin-top: 10px;
+  }
+}

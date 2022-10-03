@@ -1,0 +1,1 @@
+export {MIcon} from './MIcon';

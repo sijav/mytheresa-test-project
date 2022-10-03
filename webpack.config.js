@@ -7,14 +7,23 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 
 module.exports = {
   entry: [path.join(__dirname, 'src', 'index.js')],
-  output: {path: path.join(__dirname, 'build'), filename: 'index.bundle.js', publicPath: ''},
+  output: {
+    path: path.join(__dirname, 'build'),
+    filename: '[name].js',
+    chunkFilename: '[name].chunk.js',
+    publicPath: '/'
+  },
   mode: 'development',
   resolve: {
+    alias: {
+      src: path.resolve(__dirname, 'src')
+    },
     modules: [path.resolve(__dirname, 'src'), 'node_modules']
   },
   devtool: 'eval',
   devServer: {
     static: path.join(__dirname, 'src'),
+    historyApiFallback: true,
     host: '0.0.0.0',
     port: 3000
   },
@@ -58,7 +67,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src', 'index.html')
+      template: path.join(__dirname, 'public', 'index.html')
     }),
     new webpack.HotModuleReplacementPlugin(),
     new Dotenv(),
